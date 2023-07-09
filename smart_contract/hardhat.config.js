@@ -1,6 +1,14 @@
-require("@nomicfoundation/hardhat-toolbox");
+require("@nomiclabs/hardhat-waffle");
 
-/** @type import('hardhat/config').HardhatUserConfig */
+const PRIVATE_KEY = import.meta.env.VITE_PRIVATE_KEY;
+const PRIVATE_URL = import.meta.env.VITE_PRIVATE_URL;
+
 module.exports = {
-  solidity: "0.8.18",
+  solidity: "0.8.0",
+  networks: {
+    sepolia: {
+      url: PRIVATE_URL,
+      accounts: [PRIVATE_KEY],
+    },
+  },
 };
